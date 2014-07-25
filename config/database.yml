@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
   database: watchtocode_production
   username: watchtocode
   password: <%= ENV['WATCHTOCODE_DATABASE_PASSWORD'] %>
+  pool: 5
