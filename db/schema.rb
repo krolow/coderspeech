@@ -85,18 +85,6 @@ ActiveRecord::Schema.define(version: 20140725043042) do
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
-  create_table "technologies", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "slug"
-  end
-
-  create_table "technologies_videos", id: false, force: true do |t|
-    t.integer "video_id"
-    t.integer "technology_id"
-  end
-
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -136,7 +124,7 @@ ActiveRecord::Schema.define(version: 20140725043042) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.boolean  "featured"
-    t.date     "date"
+    t.date     "date_of_video"
   end
 
 end
