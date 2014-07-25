@@ -13,7 +13,7 @@ class Video < ActiveRecord::Base
   belongs_to :level
   belongs_to :category
 
-  scope :recent, -> { order(date: :desc) }
+  scope :recent, -> { order(date_of_video: :desc) }
   scope :most_viewed, -> { order(views: :desc) }
   scope :published, -> { where(published: true)}
   scope :featured, -> { where(featured: true)}
