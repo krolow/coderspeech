@@ -1,0 +1,39 @@
+<div class="col-md-6 col-md-offset-3">
+  <h3 class="text-center">Please Log In, or <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    <%= link_to "Sign up", new_registration_path(resource_name) %>
+  <% end -%></h3>
+  <div class="row">
+    <%- if devise_mapping.omniauthable? %>
+      <% size = 12 / resource_class.omniauth_providers.length %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+        <div class="col-xs-<%= size %> col-sm-<%= size %> col-md-<%= size %>">
+          <%= link_to "#{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: "btn btn-lg btn-block btn-#{provider.to_s}" %>
+        </div>
+      <% end -%>
+    <% end -%>
+  </div>
+  <div class="text-center">
+      <hr />
+      <span class="text-center">or</span>
+  </div>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <%= link_to "Forgot your password?", new_password_path(resource_name), class: 'pull-right' %><br />
+      <% end -%>
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+    </div>
+    <% if devise_mapping.rememberable? -%>
+    <div class="checkbox pull-right">
+      <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+    </div>
+    <% end %>
+    <%= f.submit "Sign in", class: "btn btn-primary" %>
+  <% end %>
+</div>

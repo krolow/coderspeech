@@ -1,0 +1,18 @@
+<%= simple_form_for @video, :html => { :role => 'form', :multipart => true } do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :video %>
+  <%= f.input :slide %>
+  <%= f.association :category, included_blank: false %>
+  <%= f.input :published, as: :boolean %>
+  <%= f.input :date, as: :date %>
+  <%= f.input :featured, as: :boolean %>
+  <%= f.input :tag_list %>
+  <%= f.input :image, as: :file %>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                videos_path, :class => 'btn' %>
+  </div>
+<% end %>

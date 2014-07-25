@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h2 class="text-center">
+      <% if @category %>
+        <%= @category.name %>
+      <% end %>
+     Videos</h2>
+    <ul class="row list-inline glr-list">
+      <% @videos.each do |video| %>
+      <li class="col-sm-4 col-md-3">
+        <span class="glr-thumbnail">
+        <%= link_to(video) do %>
+          <%= image_tag video.image.url(:thumb) %>
+        <% end %>
+        <div class="tags tags-relative">
+          <% video.tag_list.each do |tag| %>
+            <a href="#" class="background-color bg-hover-color"><%= tag %></a>
+          <% end %>
+        </div>
+        </span>
+        <%= link_to(video) do %>
+        <span class="glr-title" style="margin-top: -20px;"><%= video.title %></span>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

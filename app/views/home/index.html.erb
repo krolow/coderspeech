@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h2 class="oswald text-center">Learn to code by watching programming videos</h2>
+    <hr class="double-margin">
+  </div>
+</div>
+<div class="row crp-desc">
+  <div class="col-sm-5 col-sm-offset-1">
+    <%= image_tag @featured.image.url(:medium) %>
+  </div>
+  <div class="col-sm-5">
+    <h3 class="text-color text-center-xs"><%= @featured.title %></h3>
+    <p class="text-muted text-center-xs lh">
+      <%= @featured.description %>
+    </p>
+    <p class="tags">
+    <% @featured.tag_list.each do |tag| %>
+      <%= link_to tag, video_tag_path(tag), class: "background-color bg-hover-color" %>
+    <% end %>
+    </p>     
+    <p class="text-center-xs">
+      <%= link_to "Watch video", video_path(@featured), class: "btn btn-lg btn-default" %>
+    </p>
+  </div>
+</div>
+<div class="col-sm-12">
+  <h2 class="text-center">Most viewed</h2>
+  <p class="text-muted text-center">
+      Checkout the most viewed videos
+  </p>
+  <ul class="row list-inline glr-list">
+    <% @most_viewed_videos.each do |video| %>
+    <li class="col-sm-4 col-md-3">
+      <%= link_to(video) do %>
+        <span class="glr-thumbnail">
+          <%= image_tag video.image.url(:thumb) %>
+        </span>
+        <span class="glr-text">
+          <span class="glr-title"><%= video.title %></span>
+            <% video.description %>
+          </span>
+        </span>
+      <% end %>
+    </li>
+    <% end %>
+  </ul>
+</div>
