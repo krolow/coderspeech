@@ -1,5 +1,7 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
+  impressionist actions: [:show], :unique => [:session_hash]
 
   # GET /videos
   # GET /videos.json
@@ -16,7 +18,7 @@ class VideosController < ApplicationController
     if params[:tag]
       video = video.tagged_with(params[:tag])
     end
-
+    @total = video.count
     @videos = video.page(params[:page])
   end
 
