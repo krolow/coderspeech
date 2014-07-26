@@ -51,8 +51,10 @@ gem "paperclip", "~> 4.1"
 gem 'redcarpet'
 gem 'kaminari'
 gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 'master'
-
+gem 'metamagic'
+gem 'has_scope'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => 'bootstrap3'
 gem 'cancancan', '~> 1.9'
+gem 'kaminari-bootstrap', '~> 3.0.1'

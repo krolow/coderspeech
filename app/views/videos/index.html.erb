@@ -1,10 +1,36 @@
+<%
+  if @category
+    name = "#{@category.name} "
+  end
+  if @tag
+    name = "#{@tag.name} "
+  end
+  
+  description = "Watch the best #{name}videos about code and programming."
+
+  meta title: "#{name} Videos",
+     description: description,
+     keywords: ["videos", "code", "programming", name],
+     og: {
+      url: request.original_url,
+      title: "#{name} Videos",
+      description: description,
+     }
+%>
 <div class="row">
   <div class="col-sm-12">
     <h2 class="text-center">
-      <% if @category %>
-        <%= @category.name %>
-      <% end %>
-     Videos</h2>
+      <%= name %>Videos
+    </h2>
+    <div class="options-bar">
+      <select class="span2 pull-left"><option>Sort By </option>
+        <option>Date</option>
+        <option>Popular</option>
+        <option>Highest Rating</option>
+        <option>Lowest Rating</option>
+      </select>
+      <span><strong><%= @total %></strong> Videos Found</span>
+    </div>
     <ul class="row list-inline glr-list">
       <% @videos.each do |video| %>
       <li class="col-sm-4 col-md-3">
@@ -24,5 +50,6 @@
       </li>
       <% end %>
     </ul>
+    <%= paginate @videos %>
   </div>
 </div>

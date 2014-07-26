@@ -9,6 +9,7 @@ class Video < ActiveRecord::Base
       :medium => "458x266#",
       :thumb => "273x182#"
     }
+  is_impressionable :counter_cache => true, :column_name => :views
 
   belongs_to :level
   belongs_to :category

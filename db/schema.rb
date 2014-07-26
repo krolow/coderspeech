@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725043042) do
+ActiveRecord::Schema.define(version: 20140725235703) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -85,6 +85,18 @@ ActiveRecord::Schema.define(version: 20140725043042) do
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
+  create_table "technologies", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+  end
+
+  create_table "technologies_videos", id: false, force: true do |t|
+    t.integer "video_id"
+    t.integer "technology_id"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -102,6 +114,7 @@ ActiveRecord::Schema.define(version: 20140725043042) do
     t.string   "uid"
     t.string   "slug"
     t.string   "name"
+    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -125,6 +138,7 @@ ActiveRecord::Schema.define(version: 20140725043042) do
     t.datetime "image_updated_at"
     t.boolean  "featured"
     t.date     "date_of_video"
+    t.string   "short_description"
   end
 
 end

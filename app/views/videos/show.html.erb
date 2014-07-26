@@ -1,9 +1,35 @@
+<%
+  tags = @video.tag_list.clone;
+  meta title: @video.title + ' | Watchtocode',
+     description: @video.short_description,
+     keywords: tags.push("code", "programming", "video", @video.category.name),
+     og: {
+      image: URI.join(request.url, @video.image.url(:medium)),
+      url: request.original_url,
+      type: 'video.other',
+      title: @video.title,
+      description: @video.short_description
+     }
+%>
 <div class="col-sm-12 col-md-12">
   <div class="flex-video">
-    <iframe width="100%" height="100%" src="//www.youtube.com/embed/8gM3xMObEz4?wmode=transparent" frameborder="0" allowfullscreen></iframe>    
+    <%= video(@video.video) %>  
   </div>
   <div class="row">
     <div class="col-sm-8 col-md-9">
+      <div class="links">
+        <% if can? :edit, Video %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                    edit_video_path(@video), :class => 'btn btn-default btn-xs' %>
+        <% end %>
+        <% if can? :destroy, Video %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                    video_path(@video),
+                    :method => :delete,
+                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                    :class => 'btn btn-xs btn-danger' %>
+        <% end %>
+      </div>      
       <h2><%= @video.title %></h2>
       <p class="tags">
       <% @video.tag_list.each do |tag| %>
@@ -17,19 +43,7 @@
         <span class="icon">
           <i class="fa fa-eye"></i>
         </span>
-        <span class="number">85</span>
-        </li>
-        <li class="col-xs-4">
-        <span class="icon">
-          <i class="fa fa-thumb-tack"></i>
-        </span>
-        <span class="number">10</span>
-        </li>
-        <li class="col-xs-4">
-        <span class="icon">
-          <i class="fa fa-comments"></i>
-        </span>
-        <span class="number">12</span>
+        <span class="number"><%= @video.views %></span>
         </li>
       </ul>      
     </div> 
