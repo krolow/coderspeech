@@ -7,4 +7,6 @@ $(document).on('ready page:load', function () {
 		}
 		window.location = $(this).data('url') + path;
 	});
+
+	new Share(".share-button");
 });
