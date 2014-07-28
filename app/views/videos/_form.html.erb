@@ -1,5 +1,6 @@
 <%= simple_form_for @video, :html => { :role => 'form', :multipart => true } do |f| %>
   <%= f.input :title %>
+  <%= f.input :short_description, as: :text %>
   <%= f.input :description, as: :text %>
   <%= f.input :video %>
   <%= f.input :slide %>
