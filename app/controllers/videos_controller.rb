@@ -49,8 +49,8 @@ class VideosController < ApplicationController
 
     respond_to do |format|
       if @video.save
-        format.html { redirect_to @video, notice: 'Video was successfully created.' }
-        format.json { render :show, status: :created, location: @video }
+        format.html { redirect_to video_show_path(@video.category, @video), notice: 'Video was successfully created.' }
+        format.json { render :show, status: :created, location: video_show_path(@video.category, @video) }
       else
         format.html { render :new }
         format.json { render json: @video.errors, status: :unprocessable_entity }
@@ -63,8 +63,8 @@ class VideosController < ApplicationController
   def update
     respond_to do |format|
       if @video.update(video_params)
-        format.html { redirect_to @video, notice: 'Video was successfully updated.' }
-        format.json { render :show, status: :ok, location: @video }
+        format.html { redirect_to video_show_path(@video.category, @video), notice: 'Video was successfully updated.' }
+        format.json { render :show, status: :ok, location: video_show_path(@video.category, @video) }
       else
         format.html { render :edit }
         format.json { render json: @video.errors, status: :unprocessable_entity }
