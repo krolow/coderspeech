@@ -1,0 +1,21 @@
+<ul class="row list-inline glr-list">
+  <%
+    videos.each_with_index do |video, index|
+  %>
+  <li class="col-sm-4 col-md-3 <%= "clearfix" if (index % 4).zero? %>">
+      <span class="glr-thumbnail">
+        <%= link_to(video_show_path(video.category, video)) do %>
+          <%= image_tag video.image.url(:thumb) %>
+        <% end %>
+        <div class="tags tags-relative">
+          <%= render partial: 'elements/tag', collection: video.tag_list, as: :tag %>
+        </div>          
+      </span>
+      <%= link_to(video_show_path(video.category, video)) do %>
+      <span class="glr-text">
+        <span class="glr-title" style="margin-top: -20px;"><%= video.title %></span>
+      </span>
+      <% end %>
+  </li>
+  <% end %>
+</ul>
