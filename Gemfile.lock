@@ -8,6 +8,16 @@ GIT
       activemodel (~> 4.0)
 
 GIT
+  remote: git://github.com/resque/resque.git
+  revision: 8f13ad5b61a2c68dcf9f92980920008184359099
+  specs:
+    resque (2.0.0.pre.1)
+      json
+      mono_logger (~> 1.0)
+      redis-namespace (>= 1.3.0)
+      thor (~> 0.17)
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 1d93c5a77049b3d21d17c847ad0531d7714fa229
   branch: bootstrap3
@@ -56,6 +66,7 @@ GEM
       rake (>= 0.8.7)
     acts-as-taggable-on (3.3.0)
       activerecord (>= 3, < 5)
+    addressable (2.3.6)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     builder (3.2.2)
@@ -92,11 +103,8 @@ GEM
     has_scope (0.5.1)
     hashie (3.2.0)
     hike (1.2.3)
-    httpclient (2.4.0)
+    htmlentities (4.3.2)
     i18n (0.6.11)
-    impressionist (1.5.1)
-      httpclient (~> 2.2)
-      nokogiri (~> 1.5)
     jbuilder (2.1.2)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -123,14 +131,12 @@ GEM
     metamagic (3.1.3)
       rails (>= 3.0.0)
     mime-types (1.25.1)
-    mini_portile (0.6.0)
     minitest (5.4.0)
+    mono_logger (1.1.0)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     mysql2 (0.3.16)
-    nokogiri (1.6.3.1)
-      mini_portile (= 0.6.0)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -183,6 +189,9 @@ GEM
     rdoc (4.1.1)
       json (~> 1.4)
     redcarpet (3.1.2)
+    redis (3.1.0)
+    redis-namespace (1.5.0)
+      redis (~> 3.0, >= 3.0.4)
     ref (1.0.5)
     sass (3.2.19)
     sass-rails (4.0.3)
@@ -219,6 +228,10 @@ GEM
     uglifier (2.5.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    video_info (2.3.1)
+      addressable
+      htmlentities
+      multi_json
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -233,7 +246,6 @@ DEPENDENCIES
   devise
   friendly_id (~> 5.0.0)
   has_scope
-  impressionist
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
@@ -247,6 +259,7 @@ DEPENDENCIES
   rails (= 4.1.4)
   rails_12factor
   redcarpet
+  resque (~> 2.0.0.pre.1)!
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   simple_form (~> 3.1.0.rc1)!
@@ -255,3 +268,4 @@ DEPENDENCIES
   turbolinks
   twitter-bootstrap-rails!
   uglifier (>= 1.3.0)
+  video_info

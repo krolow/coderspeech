@@ -9,7 +9,8 @@ class Video < ActiveRecord::Base
       :medium => "458x266#",
       :thumb => "273x182#"
     }
-  is_impressionable :counter_cache => true, :column_name => :views
+
+  before_save :grab_video_info
 
   belongs_to :level
   belongs_to :category
@@ -18,6 +19,14 @@ class Video < ActiveRecord::Base
   scope :most_viewed, -> { order(views: :desc) }
   scope :published, -> { where(published: true)}
   scope :featured, -> { where(featured: true)}
+  scope :sort, -> sort {
+    if sort == "date"
+      order(date_of_video: :desc)
+    end
+    if sort == "popular"
+      order(views: :desc)
+    end
+  }
 
   validates :title, presence: true, uniqueness: true
   validates :video, presence: true, url: true
@@ -25,5 +34,17 @@ class Video < ActiveRecord::Base
   validates :category, presence: true
   validates :image, presence: true
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/, message: "Image not valid"
+
+  def view_grabber_working?
+    @view_grabber_working
+  end
+
+  private
+    def grab_video_info
+      videoInfo = VideoInfo.new(self.video)
+      logger.debug videoInfo.video_id
+      self.embed_url = videoInfo.embed_url
+      self.views = videoInfo.view_count
+    end
 
 end

@@ -10,11 +10,4 @@ module ApplicationHelper
     markdown.render(blogtext).html_safe
   end
 
-  def video(url)
-    if url.scan(/youtube.com/)
-      return "<iframe width=\"100%\" height=\"100%\" src=\"#{url}\" frameborder=\"0\" allowfullscreen></iframe>".html_safe
-    end
-
-    "<iframe src=\"#{url}\" width=\"100%\" height=\"100%\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>".html_safe
-  end
 end

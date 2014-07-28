@@ -37,12 +37,14 @@ body {
 /* ===== Logo ===== */
 
 .navbar-brand {
-	font-family: 'Lobster', cursive;
-	font-size: 26px;
+	background: url('<%= image_url 'logo.png' %>') no-repeat;
+	text-indent: -99999px;
+	width: 129px;
+	height: 60px;
+	margin-right: 20px;
 }
 .navbar-brand i {
-	font-size: 20px;
-	margin-right: 1px;
+
 }
 
 /* ===== Navbar ===== */
@@ -1052,7 +1054,7 @@ a.carousel-arrow-next {
 	margin-bottom: 100px;
 	padding-top: 50px;
 	padding-bottom: 200px;
-	background: url(../img/photo.jpg) no-repeat center center;
+	background: url(/asset/img/photo.jpg) no-repeat center center;
 	background-size: cover;
 	color: #FFF;
 	border-bottom: 1px solid #eee;
@@ -1205,15 +1207,18 @@ a.carousel-arrow-next {
 .options-bar {
 	margin-bottom: 15px;
 	padding: 10px;
-	background: image-url('bg-1.png') repeat;
+	background: url('<%= image_url 'bg-1.png' %>') repeat;
 	border: 1px solid rgb(241, 241, 241);
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 }
-.options-bar span {
-font-size: 12px;
-padding: 6px 21px;
-float: right;
-color: #757575;
+.options-bar .videos-found {
+	font-size: 12px;
+	padding: 6px 21px;
+	color: #757575;
+}
+.clearfix {
+	clear:both;
+	display: block;
 }

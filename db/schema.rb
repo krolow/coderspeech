@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725235703) do
+ActiveRecord::Schema.define(version: 20140726201816) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(version: 20140725235703) do
     t.integer  "level_id"
     t.integer  "category_id"
     t.integer  "views"
-    t.boolean  "published",          default: false
+    t.boolean  "published",            default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
@@ -139,6 +139,8 @@ ActiveRecord::Schema.define(version: 20140725235703) do
     t.boolean  "featured"
     t.date     "date_of_video"
     t.string   "short_description"
+    t.string   "embed_url"
+    t.boolean  "view_grabber_working"
   end
 
 end

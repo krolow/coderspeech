@@ -44,7 +44,7 @@ gem 'pg', group: :production
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'friendly_id', '~> 5.0.0'
-gem 'impressionist'
+gem "resque", "~> 2.0.0.pre.1", github: "resque/resque"
 gem 'activevalidators'
 gem 'acts-as-taggable-on'
 gem "paperclip", "~> 4.1"
@@ -58,3 +58,4 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => 'bootstrap3'
 gem 'cancancan', '~> 1.9'
 gem 'kaminari-bootstrap', '~> 3.0.1'
+gem 'video_info'

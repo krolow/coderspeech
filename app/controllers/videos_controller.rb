@@ -1,11 +1,12 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
-  impressionist actions: [:show], :unique => [:session_hash]
+  has_scope :sort
 
   # GET /videos
   # GET /videos.json
   def index
+    logger.debug
     video = Video
     if params[:category]
       @category = Category.find(params[:category])
@@ -14,17 +15,21 @@ class VideosController < ApplicationController
       end
       video = video.where(category_id: @category.id)
     end
-    logger.debug params
     if params[:tag]
+      @tag = params[:tag]
       video = video.tagged_with(params[:tag])
     end
+
     @total = video.count
-    @videos = video.page(params[:page])
+    @videos = apply_scopes(video).includes(:category).published.page(params[:page])
   end
 
   # GET /videos/1
   # GET /videos/1.json
   def show
+    # if not @video.view_grabber_working?
+    #   Resque.enqueue(VideoViewsGrabberJob, @video.id)
+    # end
   end
 
   # GET /videos/new
@@ -94,7 +99,7 @@ class VideosController < ApplicationController
         :category_id,
         :tag_list,
         :published,
-        :date,
+        :date_of_video,
         :featured
       )
     end

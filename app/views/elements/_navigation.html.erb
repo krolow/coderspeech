@@ -7,11 +7,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to 'watch to code', root_path, class: 'navbar-brand logo' %>
+          <%= link_to 'coder speech', root_path, class: 'navbar-brand logo' %>
       </div>
       <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Popular", videos_path %>
+        <li><%= link_to "All", videos_path %>
         <% Category.all.order(:name).each do |category| %>
           <li><%= link_to category.name.to_s.titleize, video_category_path(category) %></li>
         <% end %>
