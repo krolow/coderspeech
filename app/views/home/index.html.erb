@@ -27,8 +27,12 @@
       Checkout the most viewed videos
   </p>
   <ul class="row list-inline glr-list">
-    <% @most_viewed_videos.each do |video| %>
-    <li class="col-sm-4 col-md-3">
+    <%
+      counter = 0
+      @most_viewed_videos.each do |video|
+        counter = counter + 1
+    %>
+    <li class="col-sm-4 col-md-3 <%= "clearfix" if (counter % 4).zero? %>">
       <%= link_to(video_show_path(video.category, video)) do %>
         <span class="glr-thumbnail">
           <%= image_tag video.image.url(:thumb) %>
@@ -50,8 +54,12 @@
       Checkout the recent videos
   </p>
   <ul class="row list-inline glr-list">
-    <% @latest_videos.each do |video| %>
-    <li class="col-sm-4 col-md-3">
+    <%
+      counter = 0
+      @latest_videos.each do |video|
+        counter = counter + 1
+    %>
+    <li class="col-sm-4 col-md-3 <%= "clearfix" if (counter % 4).zero? %>">
         <span class="glr-thumbnail">
           <%= link_to(video_show_path(video.category, video)) do %>
             <%= image_tag video.image.url(:thumb) %>
