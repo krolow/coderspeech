@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
-  has_scope :sort
+  has_scope :sort, default: "created_at"
 
   # GET /videos
   # GET /videos.json

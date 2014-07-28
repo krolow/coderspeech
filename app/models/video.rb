@@ -26,6 +26,8 @@ class Video < ActiveRecord::Base
     if sort == "popular"
       order(views: :desc)
     end
+
+    order(created_at: :desc)
   }
 
   validates :title, presence: true, uniqueness: true
