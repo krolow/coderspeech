@@ -59,3 +59,4 @@ gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'cancancan', '~> 1.9'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'video_info'
+gem 'aws-sdk'
