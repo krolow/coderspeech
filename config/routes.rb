@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :categories
   
   get "/contact" => "contact#index", as: "contact"
+  get "/videos/new" => "videos#new", as: "new_video"
   get "/technology/:tag" =>"videos#index", as: "video_tag"
   get "/videos/:category/:id/edit" => "videos#edit", as: "video_edit"
   get "/videos/:category/:id" =>"videos#show", as: "video_show"
