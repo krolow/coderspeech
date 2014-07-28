@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).on('ready page:load', function () {
 	$('select.sort', $('.videos.index')).change(function () {
 		var path = '';
 
