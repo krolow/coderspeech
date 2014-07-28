@@ -28,11 +28,9 @@
   </p>
   <ul class="row list-inline glr-list">
     <%
-      counter = 0
-      @most_viewed_videos.each do |video|
-        counter = counter + 1
+      @most_viewed_videos.each_with_index do |video, index|
     %>
-    <li class="col-sm-4 col-md-3 <%= "clearfix" if (counter % 4).zero? %>">
+    <li class="col-sm-4 col-md-3 <%= "clearfix" if (index % 4).zero? %>">
       <%= link_to(video_show_path(video.category, video)) do %>
         <span class="glr-thumbnail">
           <%= image_tag video.image.url(:thumb) %>
@@ -55,11 +53,9 @@
   </p>
   <ul class="row list-inline glr-list">
     <%
-      counter = 0
-      @latest_videos.each do |video|
-        counter = counter + 1
+      @latest_videos.each_with_index do |video, index|
     %>
-    <li class="col-sm-4 col-md-3 <%= "clearfix" if (counter % 4).zero? %>">
+    <li class="col-sm-4 col-md-3 <%= "clearfix" if (index % 4).zero? %>">
         <span class="glr-thumbnail">
           <%= link_to(video_show_path(video.category, video)) do %>
             <%= image_tag video.image.url(:thumb) %>
