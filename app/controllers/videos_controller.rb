@@ -100,6 +100,7 @@ class VideosController < ApplicationController
         :tag_list,
         :published,
         :date_of_video,
+        :short_description,
         :featured
       )
     end
