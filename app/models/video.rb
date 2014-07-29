@@ -20,11 +20,12 @@ class Video < ActiveRecord::Base
   scope :published, -> { where(published: true)}
   scope :featured, -> { where(featured: true)}
   scope :sort, -> sort {
+    logger.debug sort
     if sort == "date"
-      order(date_of_video: :desc)
+      return order(date_of_video: :desc)
     end
     if sort == "popular"
-      order(views: :desc)
+      return order(views: :desc)
     end
 
     order(created_at: :desc)
