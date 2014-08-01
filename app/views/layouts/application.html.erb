@@ -43,7 +43,7 @@
 		<div class="container">
 		  <footer>
 			  <div class="list-inline pull-left">
-			  	<div class="fb-like" data-href="<%= request.domain %>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+			  	<div class="fb-like" data-href="<%= "#{request.protocol}#{request.host}" %>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 			  </div>
 			  <span class="pull-right-xs text-muted">&copy; Coder Speech           </span>
 			<div class="clearfix"></div>
