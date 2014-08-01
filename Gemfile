@@ -61,6 +61,7 @@ gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'video_info'
 gem 'aws-sdk'
 gem 'sitemap_generator'
+gem 'fog'
 gem 'guard-rails', group: :development
 gem 'guard-livereload', group: :development
 gem 'rack-livereload', group: :development
