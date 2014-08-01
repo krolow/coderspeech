@@ -9,4 +9,6 @@ $(document).on('ready page:load', function () {
 	});
 
 	new Share(".share-button");
+
+	FB.init({ status: true, cookie: true, xfbml: true });
 });
