@@ -29,8 +29,8 @@ loadFacebookSDK = ->
 
 initializeFacebookSDK = ->
   FB.init
-    appId     : 'YOUR_APP_ID'
-    channelUrl: '//WWW.YOUR_DOMAIN.COM/channel.html'
+    appId     : '275016299349884'
+    channelUrl: 'http://facebook.com/coderspeech'
     status    : true
     cookie    : true
     xfbml     : true
